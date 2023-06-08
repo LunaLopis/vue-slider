@@ -19,13 +19,8 @@
                 <div class="item">
                     <img :src="serie.images[activeImage].image"  />
                     <div class="text">
-                        <h3>Spiderman</h3>
-                        <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit
-                            tempore aliquid deleniti aut
-                            veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum
-                            corporis.
-                        </p>
+                        <h3>{{ serie.images[activeImage].title }}</h3>
+                        <p>{{ serie.images[activeImage].text }}</p>
                     </div>
                 </div>
 
@@ -33,8 +28,7 @@
                     <div class="prev" @click="prevImage"></div>
                     <div class="next" @click="nextImage"></div>
                     <div class="thumb active">
-                           <img v-for="(image, index) in serie.images" :src="image.image"  :class="activeImage === index ? 'active' : ''" @click="changeImage(index)"/>
-                        
+                           <img v-for="(image, index) in serie.images" :src="image.image"  :class="activeImage === index ? 'active' : ''" @click="changeImage(index)"/>                        
                     </div>
 
                 </div>
