@@ -33,10 +33,7 @@ createApp({
         }
     }, 
     created (){
-        this.autoScroll = setInterval(() =>{
-           this.nextImage()
-           
-        }, 3000);
+        this.startAutoScroll();
     },
     methods: {
         changeImage(index){
@@ -52,6 +49,15 @@ createApp({
           if(this.activeImage < 0) {
             this.activeImage = this.serie.images.length -1;
           }
+        },
+        startAutoScroll(){
+            this.autoScroll = setInterval(() => {
+                this.nextImage()
+            }, 3000)
+           
+        },
+        pauseAutoScroll(){
+            clearInterval(this.autoScroll)
         }
     }
 }).mount('#app');
